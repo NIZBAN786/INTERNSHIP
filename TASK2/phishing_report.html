@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Email Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1, h2 {
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+      color: #007BFF;
+    }
+    p, ul {
+      line-height: 1.6;
+    }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .highlight {
+      background: #ffdddd;
+      padding: 10px;
+      border-left: 5px solid #f44336;
+      margin-bottom: 20px;
+    }
+    .box {
+      background: #e7f3fe;
+      border-left: 5px solid #2196F3;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Phishing Email Analysis Report</h1>
+
+  <h2>1. Executive Summary</h2>
+  <p>This report examines a suspicious email purporting to be from "Nationaal Thuisbatterij Centrum". It was analyzed using Sublime Security tools and manual header and content inspection. Although it includes marketing-like features, key indicators confirm phishing intent: failed SPF/DMARC, mismatched sender data, use of scam domains, and aggressive social engineering.</p>
+
+  <h2>2. Email Overview</h2>
+  <p>
+    <strong>Subject:</strong> Slechts 100 plekken beschikbaar: Profiteer van een thuisbatterij zonder kosten!<br>
+    <strong>From:</strong> thuisbatterij@aprimarse.com<br>
+    <strong>Reply-To:</strong> reply@rXv23mZjtpFEJeMOtaSMeBYA.com<br>
+    <strong>Recipient:</strong> phishing@pot
+  </p>
+
+  <h2>3. Technical Analysis</h2>
+  <h3>3.1 Authentication Summary</h3>
+  <table>
+    <tr><th>Check</th><th>Status</th><th>Details</th></tr>
+    <tr><td>SPF</td><td style="color: red;">❌ None</td><td>IP not authorized to send from domain</td></tr>
+    <tr><td>DKIM</td><td style="color: green;">✅ Pass</td><td>Signed by aprimarse.com</td></tr>
+    <tr><td>DMARC</td><td style="color: red;">❌ PermError</td><td>Invalid or misconfigured record</td></tr>
+    <tr><td>Composite Auth</td><td style="color: green;">✅ Pass</td><td>Based on DKIM by Microsoft</td></tr>
+  </table>
+
+  <div class="highlight">
+    ⚠️ The SPF and DMARC failures combined with domain spoofing indicate a likely phishing email despite DKIM pass.
+  </div>
+
+  <h2>4. Link & Domain Analysis</h2>
+  <ul>
+    <li><strong>Main CTA Link:</strong> <code>https://click.sas.aprimarse.com/...</code></li>
+    <li><strong>Unsubscribe:</strong> <code>http://rXv23mZjtpFEJeMOtaSMeBYA.com/...</code></li>
+    <li><strong>Tracking:</strong> <code>click.trace.versatilevoices.shop</code></li>
+  </ul>
+  <p>All URLs either redirect through or originate from known scam or suspicious domains.</p>
+
+  <h2>5. Social Engineering Tactics</h2>
+  <ul>
+    <li>🚨 <strong>Urgency</strong>: “Only 100 spots available!”</li>
+    <li>💰 <strong>Incentive</strong>: “Home battery at no cost”</li>
+    <li>🎯 <strong>Clear CTA</strong>: “Check if your home qualifies”</li>
+  </ul>
+
+  <div class="box">
+    🔎 The language was grammatically correct and persuasive, resembling legitimate offers — making it even more deceptive.
+  </div>
+
+  <h2>6. Key Phishing Indicators</h2>
+  <table>
+    <tr><th>Indicator</th><th>Detected?</th></tr>
+    <tr><td>Sender Spoofing</td><td>✅</td></tr>
+    <tr><td>SPF/DMARC Failure</td><td>✅</td></tr>
+    <tr><td>Suspicious URLs</td><td>✅</td></tr>
+    <tr><td>Tracking Pixels</td><td>✅</td></tr>
+    <tr><td>Urgency & Incentive</td><td>✅</td></tr>
+    <tr><td>Professional Language</td><td>✅</td></tr>
+  </table>
+
+  <h2>7. Risk & Impact</h2>
+  <p>This phishing attempt aims to harvest PII or lure users into fake transactions. Risks include identity theft, financial fraud, and malware infection.</p>
+
+  <h2>8. Recommendations</h2>
+  <ul>
+    <li>Do not click any links or reply to the sender.</li>
+    <li>Report the message to IT or your mail provider.</li>
+    <li>Verify suspicious offers via official channels.</li>
+    <li>Train users to recognize social engineering cues.</li>
+  </ul>
+
+  <h2>9. References</h2>
+  <ul>
+    <li><a href="https://analyzer.sublime.security/?id=8e604df5-2db3-4035-adbc-5d38bc848659" target="_blank">Sublime Analyzer Result</a></li>
+    <li><a href="https://play.sublime.security/?id=e30ca5f7-5f09-41b5-88a4-d63035c9b995" target="_blank">Sublime Playground</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/external-email-warnings?view=o365-worldwide" target="_blank">Microsoft Email Warnings</a></li>
+  </ul>
+</div>
+</body>
+</html>
