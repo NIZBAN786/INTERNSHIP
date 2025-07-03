@@ -1,0 +1,188 @@
+<h1 id="network-traffic-analysis-report">Network Traffic Analysis
+  Report</h1>
+<h2 id="author-nizban">Author: Nizban</h2>
+<h2 id="introduction">Introduction</h2>
+<p>This report provides an analysis of the network traffic captured in
+  the <code>TASK5.pcap</code> and <code>task5.pcapng</code> files. The
+  analysis aims to identify the types of protocols present, common network
+  conversations, and potential security-related anomalies, following a
+  structure similar to the provided example report.</p>
+<h2 id="protocol-hierarchy">Protocol Hierarchy</h2>
+<p>The following is a summary of the protocol distribution observed in
+  the <code>TASK5.pcap</code> file:</p>
+<pre><code>===================================================================
+Protocol Hierarchy Statistics
+Filter: 
+
+eth                                      frames:954 bytes:93492
+  ip                                     frames:954 bytes:93492
+    icmp                                 frames:954 bytes:93492
+===================================================================</code></pre>
+<p>From the protocol hierarchy of <code>TASK5.pcap</code>, it is evident
+  that the file exclusively contains ICMP traffic encapsulated within IP
+  and Ethernet frames. This indicates that this capture primarily consists
+  of ICMP-based communications, most likely from ping operations.</p>
+<p>The following is a summary of the protocol distribution observed in
+  the <code>task5.pcapng</code> file:</p>
+<pre><code>===================================================================
+Protocol Hierarchy Statistics
+Filter: 
+
+eth                                      frames:1044 bytes:106288
+  ip                                     frames:978 bytes:98768
+    icmp                                 frames:954 bytes:93492
+    udp                                  frames:24 bytes:5276
+      mdns                               frames:24 bytes:5276
+  arp                                    frames:42 bytes:1764
+  ipv6                                   frames:24 bytes:5756
+    udp                                  frames:24 bytes:5756
+      mdns                               frames:24 bytes:5756
+===================================================================</code></pre>
+<p>The <code>task5.pcapng</code> file shows a more diverse protocol
+  hierarchy compared to <code>TASK5.pcap</code>. While ICMP traffic still
+  constitutes a significant portion of the IPv4 traffic, likely indicating
+  ping activities, MDNS (Multicast DNS) is also present within both IPv4
+  and IPv6 UDP traffic. Additionally, ARP (Address Resolution Protocol)
+  traffic is observed. This suggests that <code>task5.pcapng</code>
+  captures a broader range of network activities, including service
+  discovery and address resolution, in addition to basic connectivity
+  checks.</p>
+<h2 id="top-talkers-ip-conversations">Top Talkers (IP
+  Conversations)</h2>
+<p>The following table summarizes the top IP conversations observed in
+  the <code>TASK5.pcap</code> file:</p>
+<pre><code>================================================================================
+IPv4 Conversations
+Filter:&lt;No Filter&gt;
+                                               |       &lt;-      | |       -&gt;      | |     Total     |    Relative    |   Duration   |
+                                               | Frames  Bytes | | Frames  Bytes | | Frames  Bytes |      Start     |              |
+172.24.78.124        &lt;-&gt; 8.8.8.8                  477 46 kB         477 46 kB         954 93 kB         0.000000000       476.7967
+================================================================================</code></pre>
+<p>The conversation between <code>172.24.78.124</code> and
+  <code>8.8.8.8</code> (Google DNS) is the sole and most prominent
+  conversation in <code>TASK5.pcap</code>, accounting for all observed
+  ICMP packets. This strongly suggests that <code>172.24.78.124</code> is
+  initiating ping requests to <code>8.8.8.8</code>, and
+  <code>8.8.8.8</code> is responding. This is consistent with the protocol
+  hierarchy analysis, which showed only ICMP traffic in this file.
+</p>
+<p>The following table summarizes the top IP conversations observed in
+  the <code>task5.pcapng</code> file:</p>
+<pre><code>================================================================================
+IPv4 Conversations
+Filter:&lt;No Filter&gt;
+                                               |       &lt;-      | |       -&gt;      | |     Total     |    Relative    |   Duration   |
+                                               | Frames  Bytes | | Frames  Bytes | | Frames  Bytes |      Start     |              |
+172.24.78.124        &lt;-&gt; 8.8.8.8                  477 46 kB         477 46 kB         954 93 kB         0.000000000       476.7967
+172.24.64.1          &lt;-&gt; 224.0.0.251                0 0 bytes        24 5276 bytes      24 5276 bytes    18.730945770       363.0724
+================================================================================</code></pre>
+<p>In <code>task5.pcapng</code>, the conversation between
+  <code>172.24.78.124</code> and <code>8.8.8.8</code> remains the most
+  prominent, similar to <code>TASK5.pcap</code>. Additionally, there is a
+  conversation involving <code>172.24.64.1</code> and the multicast
+  address <code>224.0.0.251</code>, which is characteristic of MDNS
+  traffic. This further supports the observation of MDNS in the protocol
+  hierarchy of <code>task5.pcapng</code>.
+</p>
+<h2 id="tcp-conversation-analysis">TCP Conversation Analysis</h2>
+<p>No TCP conversations were identified in either
+  <code>TASK5.pcap</code> or <code>task5.pcapng</code>. This suggests that
+  during the capture period, there was no significant TCP-based
+  application-layer communication such as web browsing, file transfers, or
+  other TCP-heavy activities. The example report showed TCP traffic,
+  indicating that the original <code>Taskk5.pcap</code> file it was based
+  on contained such traffic, which is not present in the provided PCAP
+  files.
+</p>
+<h2 id="security-findings-and-observations">Security Findings and
+  Observations</h2>
+<p>Based on the analyzed traffic in <code>TASK5.pcap</code> and
+  <code>task5.pcapng</code>, the following security-related observations
+  can be made:
+</p>
+<ul>
+  <li>
+    <p><strong>Exclusive ICMP Traffic in
+        <code>TASK5.pcap</code></strong>: <code>TASK5.pcap</code> contains only
+      ICMP Echo Request and Echo Reply messages. This narrow scope of traffic
+      suggests a specific purpose, such as network connectivity testing or
+      monitoring, rather than general network activity. No other protocols
+      were observed, limiting the scope of security analysis to only
+      ICMP-based threats.</p>
+  </li>
+  <li>
+    <p><strong>Symmetric ICMP Communication</strong>: In both
+      <code>TASK5.pcap</code> and <code>task5.pcapng</code>, the ICMP
+      communication between <code>172.24.78.124</code> and
+      <code>8.8.8.8</code> is symmetric, with an equal number of Echo Requests
+      and Echo Replies. This indicates normal, healthy communication without
+      significant packet loss or one-way communication issues, which could
+      otherwise suggest network problems or certain types of attacks.
+    </p>
+  </li>
+  <li>
+    <p><strong>No Unusual ICMP Types/Codes</strong>: Only standard ICMP
+      Type 8 (Echo Request) and Type 0 (Echo Reply) with Code 0 were observed
+      in both files. The absence of other ICMP types (e.g., Destination
+      Unreachable, Time Exceeded) or unusual codes suggests no apparent
+      network errors or attempts to exploit ICMP for information gathering or
+      attacks (like ICMP floods with unusual types).</p>
+  </li>
+  <li>
+    <p><strong>No Ping Flood Indication</strong>: The volume of ICMP
+      traffic in both files is not indicative of a ping flood attack. A ping
+      flood typically involves a significantly higher volume of requests aimed
+      at overwhelming a target. The observed volume is consistent with routine
+      connectivity checks.</p>
+  </li>
+  <li>
+    <p><strong>MDNS and ARP Traffic in
+        <code>task5.pcapng</code></strong>: The presence of MDNS (Multicast DNS)
+      and ARP (Address Resolution Protocol) traffic in
+      <code>task5.pcapng</code> is common in local networks for device and
+      service discovery and address resolution. While generally benign, these
+      protocols can sometimes be exploited for amplification attacks or
+      information gathering in vulnerable configurations. However, no
+      immediate vulnerabilities were identified in this capture. The example
+      report also noted MDNS and SSDP traffic, aligning with the observations
+      in <code>task5.pcapng</code>.
+    </p>
+  </li>
+  <li>
+    <p><strong>Absence of TCP Activity</strong>: Unlike the example
+      report, neither of the provided PCAP files (<code>TASK5.pcap</code> or
+      <code>task5.pcapng</code>) contained any TCP conversations. This means
+      there were no observed web browsing, file transfers, or other TCP-heavy
+      applications during these capture periods. Therefore, no analysis of TCP
+      flag sequences or potential TCP-based attacks (like port scanning or
+      denial-of-service attempts via TCP) could be performed based on these
+      files.
+    </p>
+  </li>
+  <li>
+    <p><strong>Absence of Alarming Signatures</strong>: Based on the
+      high-level analysis of protocols and conversations in both
+      <code>TASK5.pcap</code> and <code>task5.pcapng</code>, there were no
+      obvious signs of common network attacks such as widespread port scanning
+      (many SYN packets without corresponding ACKs), brute-force attempts, or
+      known malware communication patterns. However, this does not rule out
+      more sophisticated or encrypted threats that might not be visible at
+      this level of analysis.
+    </p>
+  </li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Based on the analysis of <code>TASK5.pcap</code> and
+  <code>task5.pcapng</code>, the network traffic primarily consists of
+  ICMP, MDNS, and ARP protocols. <code>TASK5.pcap</code> is exclusively
+  ICMP traffic, while <code>task5.pcapng</code> shows a broader range
+  including MDNS and ARP, indicating regular network operations, including
+  connectivity checks, local service discovery, and address resolution. No
+  TCP activity was observed in either file, which differs from the example
+  report. While no immediate security threats or anomalies were identified
+  through this high-level analysis, a more in-depth inspection of
+  application-layer data (if available and unencrypted) would be necessary
+  for a comprehensive security assessment. This report provides a
+  foundational understanding of the network behavior captured in the
+  provided PCAP files.
+</p>
