@@ -1,0 +1,296 @@
+<h1 id="vpn-task-report---cybersecurity-internship-task-8">VPN Task
+Report - Cybersecurity Internship Task 8</h1>
+<h2 id="objective">Objective</h2>
+<p>Understanding the role of VPNs in protecting privacy and secure
+communication through hands-on experience with VPN setup and
+verification.</p>
+<h2 id="task-overview">Task Overview</h2>
+<p>The task involved setting up a free VPN service, verifying IP address
+changes, and analyzing the impact on network security and privacy.</p>
+<h2 id="tools-used">Tools Used</h2>
+<ul>
+<li><strong>VPN Service</strong>: Windscribe (Free tier)</li>
+<li><strong>IP Verification</strong>: Python script using
+<code>public_ip</code> library</li>
+<li><strong>Command Line Interface</strong>: Windows PowerShell</li>
+<li><strong>Operating System</strong>: Windows</li>
+</ul>
+<h2 id="implementation-steps">Implementation Steps</h2>
+<h3 id="1-vpn-service-selection">1. VPN Service Selection</h3>
+<ul>
+<li><strong>Chosen VPN</strong>: Windscribe</li>
+<li><strong>Reason</strong>: Free tier available, reputable service,
+good encryption standards</li>
+<li><strong>Protocol Used</strong>: WireGuard (as shown in the
+interface)</li>
+</ul>
+<h3 id="2-vpn-installation-and-setup">2. VPN Installation and Setup</h3>
+<ul>
+<li>Downloaded and installed Windscribe VPN client</li>
+<li>Created account and configured the application</li>
+<li>Selected "Best Location" option for optimal performance</li>
+<li>Connected to Seine server location</li>
+</ul>
+<h3 id="3-ip-address-verification">3. IP Address Verification</h3>
+<h4 id="before-vpn-connection">Before VPN Connection</h4>
+<ul>
+<li><strong>Original IP Address</strong>:
+<code>103.168.150.158</code></li>
+<li><strong>Method</strong>: Used Python command
+<code>python -c "import public_ip as ip; print(ip.get())"</code></li>
+<li><strong>Location</strong>: Likely based in user's actual geographic
+location</li>
+</ul>
+<h4 id="after-vpn-connection">After VPN Connection</h4>
+<ul>
+<li><strong>VPN IP Address</strong>: <code>146.70.18.103</code></li>
+<li><strong>Server Location</strong>: Seine (France)</li>
+<li><strong>Firewall Status</strong>: Active (as shown in Windscribe
+interface)</li>
+<li><strong>Data Usage</strong>: 2.0 GB remaining on free tier</li>
+</ul>
+<h3 id="4-connection-status-verification">4. Connection Status
+Verification</h3>
+<p>The screenshots demonstrate successful IP address change:</p>
+<ul>
+<li>Initial IP: <code>103.168.150.158</code></li>
+<li>VPN IP: <code>146.70.18.103</code></li>
+<li>Clear evidence of traffic routing through VPN server</li>
+</ul>
+<h2 id="technical-analysis">Technical Analysis</h2>
+<h3 id="vpn-configuration-details">VPN Configuration Details</h3>
+<ul>
+<li><strong>Protocol</strong>: WireGuard (Port 443)</li>
+<li><strong>Encryption</strong>: Industry-standard encryption
+(AES-256)</li>
+<li><strong>Server</strong>: Seine, France</li>
+<li><strong>Connection Status</strong>: Active and stable</li>
+<li><strong>Firewall</strong>: Integrated firewall protection
+enabled</li>
+</ul>
+<h3 id="network-impact">Network Impact</h3>
+<ul>
+<li><strong>IP Masking</strong>: Successfully changed public IP
+address</li>
+<li><strong>Geographic Spoofing</strong>: Traffic appears to originate
+from France</li>
+<li><strong>Encryption</strong>: All traffic encrypted through VPN
+tunnel</li>
+</ul>
+<h2 id="key-concepts-demonstrated">Key Concepts Demonstrated</h2>
+<h3 id="1-vpn-virtual-private-network">1. VPN (Virtual Private
+Network)</h3>
+<p>A VPN creates an encrypted tunnel between the user's device and a
+remote server, routing all internet traffic through this secure
+connection.</p>
+<h3 id="2-encryption-in-vpn">2. Encryption in VPN</h3>
+<ul>
+<li><strong>Protocol Used</strong>: WireGuard</li>
+<li><strong>Benefits</strong>: Provides confidentiality, integrity, and
+authentication</li>
+<li><strong>Implementation</strong>: End-to-end encryption of all data
+packets</li>
+</ul>
+<h3 id="3-privacy-protection">3. Privacy Protection</h3>
+<ul>
+<li><strong>IP Masking</strong>: Original IP address hidden from
+websites</li>
+<li><strong>Location Spoofing</strong>: Appears to browse from different
+geographic location</li>
+<li><strong>ISP Blindness</strong>: Internet Service Provider cannot see
+browsing activity</li>
+</ul>
+<h3 id="4-tunneling-protocols">4. Tunneling Protocols</h3>
+<ul>
+<li><strong>WireGuard</strong>: Modern, efficient VPN protocol</li>
+<li><strong>Advantages</strong>: Better performance, stronger security,
+simpler codebase</li>
+</ul>
+<h2 id="vpn-benefits-observed">VPN Benefits Observed</h2>
+<h3 id="privacy-benefits">Privacy Benefits</h3>
+<ol type="1">
+<li><strong>IP Address Anonymization</strong>: Real IP address
+completely hidden</li>
+<li><strong>Location Privacy</strong>: Geographic location masked</li>
+<li><strong>ISP Protection</strong>: Internet activity hidden from ISP
+monitoring</li>
+<li><strong>Public Wi-Fi Security</strong>: Encrypted connection on
+potentially unsafe networks</li>
+</ol>
+<h3 id="security-benefits">Security Benefits</h3>
+<ol type="1">
+<li><strong>Data Encryption</strong>: All traffic encrypted in
+transit</li>
+<li><strong>Man-in-the-Middle Protection</strong>: Encrypted tunnel
+prevents interception</li>
+<li><strong>Firewall Integration</strong>: Additional security layer
+provided</li>
+<li><strong>DNS Protection</strong>: Secure DNS resolution through
+VPN</li>
+</ol>
+<h2 id="vpn-limitations-identified">VPN Limitations Identified</h2>
+<h3 id="technical-limitations">Technical Limitations</h3>
+<ol type="1">
+<li><strong>Speed Reduction</strong>: Additional encryption overhead may
+reduce connection speed</li>
+<li><strong>Server Dependency</strong>: Connection quality depends on
+VPN server performance</li>
+<li><strong>Protocol Limitations</strong>: Some protocols may be blocked
+by firewalls</li>
+</ol>
+<h3 id="privacy-limitations">Privacy Limitations</h3>
+<ol type="1">
+<li><strong>Trust Requirement</strong>: Must trust VPN provider with
+traffic</li>
+<li><strong>Logging Policies</strong>: VPN provider may still log
+connection data</li>
+<li><strong>Legal Jurisdiction</strong>: Subject to laws of VPN
+provider's country</li>
+<li><strong>Not Complete Anonymity</strong>: Browser fingerprinting and
+other tracking methods still possible</li>
+</ol>
+<h3 id="practical-limitations">Practical Limitations</h3>
+<ol type="1">
+<li><strong>Data Caps</strong>: Free tiers often have bandwidth
+limitations (2GB in this case)</li>
+<li><strong>Server Locations</strong>: Limited server options on free
+plans</li>
+<li><strong>Connection Stability</strong>: May experience occasional
+disconnections</li>
+<li><strong>Compatibility</strong>: Some services may block VPN
+traffic</li>
+</ol>
+<h2 id="interview-questions---prepared-answers">Interview Questions -
+Prepared Answers</h2>
+<h3 id="1-what-is-a-vpn">1. What is a VPN?</h3>
+<p>A Virtual Private Network (VPN) is a technology that creates an
+encrypted, secure connection between a user's device and a remote
+server, routing all internet traffic through this protected tunnel.</p>
+<h3 id="2-how-does-a-vpn-protect-privacy">2. How does a VPN protect
+privacy?</h3>
+<p>VPNs protect privacy by:</p>
+<ul>
+<li>Hiding the user's real IP address</li>
+<li>Encrypting all data in transit</li>
+<li>Masking geographic location</li>
+<li>Preventing ISP monitoring of browsing activity</li>
+</ul>
+<h3 id="3-difference-between-vpn-and-proxy">3. Difference between VPN
+and proxy?</h3>
+<ul>
+<li><strong>VPN</strong>: Encrypts all traffic, works at OS level,
+provides complete network security</li>
+<li><strong>Proxy</strong>: Only routes specific application traffic,
+minimal encryption, limited security</li>
+</ul>
+<h3 id="4-what-is-encryption-in-vpn">4. What is encryption in VPN?</h3>
+<p>VPN encryption scrambles data using cryptographic algorithms (like
+AES-256) so that even if intercepted, the data cannot be read without
+the decryption key.</p>
+<h3 id="5-can-vpn-guarantee-complete-anonymity">5. Can VPN guarantee
+complete anonymity?</h3>
+<p>No, VPNs cannot guarantee complete anonymity. They provide
+significant privacy protection but users can still be tracked through
+browser fingerprinting, account logins, and other methods.</p>
+<h3 id="6-what-protocols-do-vpns-use">6. What protocols do VPNs
+use?</h3>
+<p>Common VPN protocols include:</p>
+<ul>
+<li><strong>WireGuard</strong>: Modern, efficient protocol (used in this
+task)</li>
+<li><strong>OpenVPN</strong>: Open-source, highly configurable</li>
+<li><strong>IKEv2</strong>: Fast, stable for mobile devices</li>
+<li><strong>L2TP/IPSec</strong>: Older but widely supported</li>
+</ul>
+<h3 id="7-what-are-some-vpn-limitations">7. What are some VPN
+limitations?</h3>
+<ul>
+<li>Speed reduction due to encryption overhead</li>
+<li>Dependence on VPN provider's trustworthiness</li>
+<li>Potential for connection drops</li>
+<li>Limited server access on free plans</li>
+<li>Not 100% anonymous protection</li>
+</ul>
+<h3 id="8-how-does-a-vpn-affect-network-speed">8. How does a VPN affect
+network speed?</h3>
+<p>VPNs typically reduce network speed due to:</p>
+<ul>
+<li>Encryption/decryption processing overhead</li>
+<li>Additional routing through remote servers</li>
+<li>Server load and geographic distance</li>
+<li>Protocol efficiency variations</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>The VPN setup and testing task successfully demonstrated the core
+functionality of VPN technology. The hands-on experience with Windscribe
+VPN showed clear evidence of IP address masking and traffic routing
+through encrypted tunnels. The task provided valuable insights into both
+the benefits and limitations of VPN technology for privacy protection
+and network security.</p>
+<p>Key takeaways include understanding that while VPNs are powerful
+privacy tools, they are not silver bullets for complete anonymity and
+come with trade-offs in terms of speed and trust requirements.</p>
+<h2 id="screenshots-evidence">Screenshots Evidence</h2>
+<h3 id="screenshot-1-before-vpn-connection">Screenshot 1: Before VPN
+Connection</h3>
+<p><img
+src="https://raw.githubusercontent.com/NIZBAN786/INTERNSHIP/refs/heads/main/TASK8/1.jpg"
+alt="Before VPN" /></p>
+<ul>
+<li><strong>Original IP Address</strong>:
+<code>103.168.150.158</code></li>
+<li><strong>Command Used</strong>:
+<code>python -c "import public_ip as ip; print(ip.get())"</code></li>
+<li><strong>Status</strong>: No VPN protection, real IP address
+exposed</li>
+<li><strong>PowerShell Output</strong>: Clear display of original IP
+address</li>
+</ul>
+<h3 id="screenshot-2-vpn-connection-active">Screenshot 2: VPN Connection
+Active</h3>
+<p><img
+src="https://raw.githubusercontent.com/NIZBAN786/INTERNSHIP/refs/heads/main/TASK8/2.jpg"
+alt="VPN Connected" /></p>
+<ul>
+<li><strong>VPN Service</strong>: Windscribe active and connected</li>
+<li><strong>Server Location</strong>: Seine, France (Best Location
+selected)</li>
+<li><strong>Protocol</strong>: WireGuard on port 443</li>
+<li><strong>Firewall</strong>: Active with IP
+<code>146.70.18.103</code></li>
+<li><strong>Data Remaining</strong>: 2.0 GB on free tier</li>
+<li><strong>Status</strong>: Successfully connected and protected</li>
+<li><strong>Interface</strong>: Windscribe desktop application showing
+full connection details</li>
+</ul>
+<h3 id="screenshot-3-after-vpn-connection">Screenshot 3: After VPN
+Connection</h3>
+<p><img
+src="https://raw.githubusercontent.com/NIZBAN786/INTERNSHIP/refs/heads/main/TASK8/3.jpg"
+alt="After VPN" /></p>
+<ul>
+<li><strong>New IP Address</strong>: <code>146.70.18.103</code></li>
+<li><strong>Command Re-run</strong>: Same Python command executed again
+showing IP change</li>
+<li><strong>Windscribe Interface</strong>: Still showing active
+connection in background</li>
+<li><strong>Verification</strong>: Clear evidence of successful IP
+address masking</li>
+<li><strong>Comparison</strong>: Both old and new IP addresses visible
+in terminal history</li>
+</ul>
+<h2 id="recommendations">Recommendations</h2>
+<ol type="1">
+<li><strong>For Privacy</strong>: VPNs are effective for basic privacy
+protection and public Wi-Fi security</li>
+<li><strong>For Security</strong>: Choose reputable VPN providers with
+strong encryption and no-logs policies</li>
+<li><strong>For Performance</strong>: Consider paid plans for better
+speed and unlimited data</li>
+<li><strong>For Anonymity</strong>: Combine VPN with other privacy tools
+for enhanced protection</li>
+</ol>
+<hr />
+<p><em>Task completed successfully with practical demonstration of VPN
+functionality and comprehensive analysis of privacy and security
+implications.</em></p>
